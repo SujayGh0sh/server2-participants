@@ -19,8 +19,8 @@ app.get('/', (req, res) => {
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-        origin: ['https://www.zeebanglamuktomancho.com'],  // Allow requests from this origin
-         credentials: true, // Allow credentials (e.g., cookies, authorization headers)
+        origin: 'https://www.zeebanglamuktomancho.com',  // Allow requests from this origin
+        credentials: true, // Allow credentials (e.g., cookies, authorization headers)
        }));
 
        

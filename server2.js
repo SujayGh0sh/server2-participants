@@ -22,9 +22,17 @@ app.use(express.urlencoded({ extended: true }));
 //         credentials: true, // Allow credentials (e.g., cookies, authorization headers)
 //        }));
 
+const allowedOrigins = ['https://www.zeebanglamuktomancho.com'];
+
 app.use(cors({
-  origin: 'https://www.zeebanglamuktomancho.com',
-  credentials: true, // Allow credentials (e.g., cookies, authorization headers)
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Allow credentials (e.g., cookies)
 }));
 
        

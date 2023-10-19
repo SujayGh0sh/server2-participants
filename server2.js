@@ -16,6 +16,11 @@ app.get('/', (req, res) => {
   res.send('Test message: Server is working!');
 });
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://www.zeebanglamuktomancho.com');
+  // You can set more headers and options as needed.
+  next();
+});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({

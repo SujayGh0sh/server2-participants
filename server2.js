@@ -12,6 +12,11 @@ const PORT = process.env.PORT || 8005; // You can change the port number as need
 
 // app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.send('Test message: Server is working!');
+});
+
+
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
         origin: ['https://www.zeebanglamuktomancho.com'],  // Allow requests from this origin
